@@ -20,7 +20,6 @@ R code description:
 
 4.The variables are then grouped for each subject and each activity.
 
-5.The independent tidy data set withaverage of each variable for each activity and each subject is computed. 
+5.The independent tidy data set with average of each variable for each activity and each subject is computed and saved in txt file using write.table().
 
-6. Then independent tidy data is saved in a txt file using write.table(). 
 
