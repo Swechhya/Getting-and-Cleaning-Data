@@ -13,9 +13,14 @@ http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartpho
 R code description:
 =====================
 1.The test and training data files imported in R from files x_train and x_test is first merged using rbind.
+
 2.Then the column names for the variables of the merged table is obtained from file features. From this table only the mean and   standard deviation measurements are retained.
+
 3.Then the descriptive activity names are added in the file using cbind
+
 4.The variables are then grouped for each subject and each activity.
+
 5.The independent tidy data set withaverage of each variable for each activity and each subject is computed. 
+
 6. Then independent tidy data is saved in a txt file using write.table(). 
 
