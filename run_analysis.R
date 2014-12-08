@@ -20,6 +20,22 @@ ActivityLabels<-read.table("./activity_labels.txt")
 
 ####################################################################################################################
 ####################################################################################################################
+#Creating Data Set for Training and Test Sets indivisually
+####################################################################################################################
+
+colnames(TrainigSet)<-features[,2]
+TrainingFinal<-cbind(SubjectTrain,TrainingLabel,TrainigSet)
+names(TrainingFinal)[1]<-"SubjectID"
+names(TrainingFinal)[2]<-"ActivityLabel"
+
+
+colnames(TestSet)<-features[,2]
+TestFinal<-cbind(SubjectTest,TestLabel,TestSet)
+names(TestFinal)[1]<-"SubjectID"
+names(TestFinal)[2]<-"ActivityLabel"
+
+####################################################################################################################
+####################################################################################################################
 #Merging the Test and training data sets to get one data set
 ####################################################################################################################
 
@@ -33,8 +49,10 @@ DataSet<-rbind(TrainigSet,TestSet)
 DataSet_Names<-DataSet
 colnames(DataSet_Names)<-features[,2]
 
-MeanStd<-DataSet_Names[,(grepl("mean", colnames(DataSet))|grepl("Mean", colnames(DataSet))|grepl("Std", colnames(DataSet))
-                         |grepl("std", colnames(DataSet)))]
+MeanStd<-DataSet_Names[,(grepl("mean", colnames(DataSet))|grepl
+                      ("Mean", colnames(DataSet))|grepl
+                      ("Std", colnames(DataSet))|grepl
+                      ("std", colnames(DataSet)))]
 
 ####################################################################################################################
 ####################################################################################################################
@@ -45,7 +63,7 @@ Label<-rbind(TrainingLabel,TestLabel)
 DesLabel<-data.frame();#Data frame to store the activity name as per the activity label.
 
 for(i in 1:10299)
-  
+    
 {
   k=Label[i,1]
   DesLabel[i,1]=ActivityLabels[k,2]
